@@ -1,0 +1,14 @@
+{
+	"name": "GameWithMe Portal Roblox Connect Module",
+	"tree": {
+		"$className": "DataModel",
+		"ServerScriptService": {
+			"$className": "ServerScriptService",
+			"$ignoreUnknownInstances": true,
+			"GameWithMe Portal Roblox Connect Module" : {
+				"$path": "src",
+				"$ignoreUnknownInstances": false
+			}
+		}
+	}
+}

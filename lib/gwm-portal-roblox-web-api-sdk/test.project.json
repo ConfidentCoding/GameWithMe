@@ -1,0 +1,17 @@
+{
+	"name": "GameWithMe Portal Roblox Web API SDK (Test)",
+	"tree": {
+		"$className": "DataModel",
+		"ServerScriptService": {
+			"$className": "ServerScriptService",
+			"$ignoreUnknownInstances": true,
+			"GameWithMe Portal Roblox Web API SDK": {
+				"$path": "src",
+				"$ignoreUnknownInstances": false
+			},
+			"Tests": {
+				"$path": "test"
+			}
+		}
+	}
+}

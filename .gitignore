@@ -1,0 +1,17 @@
+# selene
+
+roblox.toml
+
+# Roblox lock files
+
+*.lock
+
+# Build artifacts
+
+GameWithMe-Portal-Roblox-Connect-Module-v*.rbxmx
+
+# Example build artifacts
+
+example/Lobby.rbxlx
+example/Alternate.rbxlx
+example/Minigame.rbxlx

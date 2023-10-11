@@ -1,0 +1,54 @@
+{
+	"name": "Lobby",
+	"tree": {
+		"$className": "DataModel",
+		
+		"ServerScriptService": {
+			"$path": "src/ServerScriptService",
+			"GameWithMe Portal Roblox Connect Module": {
+				"$path": "../../src"
+			},
+			"TeleportHelpers": {
+				"$path": "../shared/TeleportHelpers.lua"
+			},
+			"PrivateServerIdReplicator": {
+				"$path": "../shared/PrivateServerIdReplicator"
+			}
+		},
+		"Workspace": {
+			"$ignoreUnknownInstances": true,
+			"$path": "src/Workspace"
+		},
+		"ReplicatedStorage": {
+			"PlaceIds": {
+				"$path": "../shared/PlaceIds.lua"
+			}
+		},
+		"Lighting": {
+			"$path": "../shared/Lighting",
+			"$properties": {
+				"ClockTime": 14.5
+			}
+		},
+		"Chat": {
+			"$className": "Chat",
+			"ChatModules": {
+				"$className": "Folder",
+				"InsertDefaultModules": {
+					"$className": "BoolValue",
+					"$properties": {
+						"Value": true
+					}
+				},
+				"GameWithMeConnectChatModule": {
+					"$path": "../../src/GameWithMeConnect/GameWithMeConnectChatModule.lua"
+				}
+			}
+		},
+		"HttpService": {
+			"$properties": {
+				"HttpEnabled": true
+			}
+		}
+	}
+}
