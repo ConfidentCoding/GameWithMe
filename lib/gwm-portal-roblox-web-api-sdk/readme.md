@@ -1,4 +1,4 @@
-# GameWithMe Portal Roblox Web API SDK v1.2.0
+# GameWithMe Portal Roblox Web API SDK v2.0
 
 This is a Roblox Lua client for the GameWithMe Portal's web API. It is used by the [GameWithMe Portal Roblox Connect Module](https://github.com/SuperAwesomeLTD/gwm-portal-roblox-connect-module).
 

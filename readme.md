@@ -97,5 +97,5 @@ The dependencies of this module are included within it, which is only the [GameW
 
 ## Development
 
-- Built using [Rojo 6](https://github.com/rojo-rbx/rojo). The main project file is [default.project.json](default.project.json).
+- Built using [Rojo 7](https://github.com/rojo-rbx/rojo). The main project file is [default.project.json](default.project.json).
 - [selene](https://github.com/Kampfkarren/selene) is used as a linter. The files [selene.toml](selene.toml) and [roblox.toml](roblox.toml) are used by this.
