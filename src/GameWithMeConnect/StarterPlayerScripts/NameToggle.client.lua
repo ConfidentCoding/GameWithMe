@@ -1,8 +1,10 @@
 local StarterGui = game:GetService("StarterGui")
+local TextChatService = game:GetService("TextChatService")
 local Players = game:GetService("Players")
     local LocalPlayer = Players.LocalPlayer
 
-local NAMES_TOGGLE_PATTERN = "^/gwm%s+names"
+local NAMES_TOGGLE_TEXT = "/gwm names"
+
 local REPLACE_NAME = 'Player'
 
 local PlayerNames = {}
@@ -78,13 +80,11 @@ function PlayerAdded(player)
     table.insert(PlayerNames, player.Name)
 end
 
-LocalPlayer.Chatted:Connect(function (msg)
-    if msg:lower():match(NAMES_TOGGLE_PATTERN) then
-        local enable = not StarterGui:GetCoreGuiEnabled(Enum.CoreGuiType.PlayerList)
-        StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, enable)
-        LocalPlayer.NameDisplayDistance = enable and 100 or 0
-        task.spawn(Start)
-    end
+TextChatService:WaitForChild(NAMES_TOGGLE_TEXT).Triggered:Connect(function()
+    if tracking == true then return end
+    StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
+    LocalPlayer.NameDisplayDistance = 0
+    task.spawn(Start)
 end)
 
 for _, plr in pairs (Players:GetChildren()) do

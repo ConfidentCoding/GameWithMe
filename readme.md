@@ -2,7 +2,7 @@
 
 This module enables your game to host GameWithMe jam sessions. It facilitates acquisition of an event setup code from a player, usually a GameWithMe moderator. Using the [GameWithMe Portal Roblox Web API SDK](https://github.com/SuperAwesomeLTD/gwm-portal-roblox-web-api-sdk/tree/GameWithMe-rebrand), this setup code is validated. Once validated, a server is reserved just for the event! Finally, the teleport details are submitted to GameWithMe for use in the [GameWithMe Portal](https://www.roblox.com/games/7649372402)!
 
-[![Download](img/download.png)](https://github.com/SuperAwesomeLTD/gwm-portal-roblox-connect-module/releases)
+[![Download](img/download.png)](https://github.com/ConfidentCoding/GameWithMe/releases)
 
 ## Installation
 

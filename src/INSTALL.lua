@@ -1,6 +1,6 @@
 return [[
 
-	GitHub: SuperAwesomeLTD/gwm-portal-roblox-connect-module
+	GitHub: /ConfidentCoding/GameWithMe
 
 To install the GameWithMe Portal Roblox Connect module, ensure that the folder containing
 this ModuleScript is a descendant of ServerScriptService, so that the Main script runs.
@@ -25,18 +25,8 @@ disable or remove it and call GameWithMeConnect:main() yourself.
 
 	Chat Module
 
-By default, opening the interface added by this module is done by typing "/gwm setup"
-into Roblox's default chat. The module enables this by injecting its own chat module
-which is used by the Lua Chat System at runtime. If using chat is not an option, you
-should create another way for ANY ARBITRARY PLAYER to ask the server to call
-GameWithMeConnect:setupCodePrompt(player)
-
-Sometimes in Studio the player loads faster than the module injects the chat module,
-which prevents the chat command from working. You can avoid this by copying
-GameWithMeConnectChatModule to a Folder named ChatModules in the Chat game service at edit
-time. If you do this, make sure to also add a true BoolValue named InsertDefaultModules
-in the ChatModules folder as well. For more details about the Lua Chat System, read:
-
-https://developer.roblox.com/en-us/articles/Lua-Chat-System
+By default, opening the interface is done by typing "/gwm setup", this is controlled via TextChatCommand's using
+the new TextChatService. If using chat is not an option, you should create another way for ANY ARBITRARY PLAYER to 
+ask the server to call GameWithMeConnect:setupCodePrompt(player)
 
 ]]

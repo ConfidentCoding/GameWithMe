@@ -6,6 +6,8 @@ local TextChatService = game:GetService('TextChatService')
 local EVENT_SETUP_MESSAGE_TEXT = "/gwm setup"
 local EVENT_JOIN_MESSAGE_TEXT = "/gwm join"
 local KICK_MESSAGE_TEXT = "/gwm kick"
+local NAMES_TOGGLE_TEXT = "/gwm names"
+local AVATAR_TOGGLE_TEXT = "/gwm avatar"
 local KICK_MESSAGE_PATTERN = "^/gwm%s+kick%s+(.+)"
 local COOL_DOWN_TIME = 5
 
@@ -43,9 +45,13 @@ TextCommand(EVENT_JOIN_MESSAGE_TEXT):Connect(function(player)
 	GameWithMeConnect:eventIdPrompt(Players:GetPlayerByUserId(player.UserId))
 end)
 
-TextCommand(KICK_MESSAGE_TEXT):Connect(function(player, message)
-	if (os.time() - lastCommand) < COOL_DOWN_TIME then return end
-	if GameWithMeConnect:isHostingEvent() or RunService:IsStudio() then
+if GameWithMeConnect:isHostingEvent() or RunService:IsStudio() then
+
+	TextCommand(NAMES_TOGGLE_TEXT)
+	TextCommand(AVATAR_TOGGLE_TEXT)
+
+	TextCommand(KICK_MESSAGE_TEXT):Connect(function(player, message)
+		if (os.time() - lastCommand) < COOL_DOWN_TIME then return end
 		local hasPrivileges = GameWithMeConnect:isGameOwnerOrGameWithMeAdminAsync(Players:GetPlayerByUserId(player.UserId)) or RunService:IsStudio()
 		if hasPrivileges then
 			-- /gwm kick [username]
@@ -64,6 +70,6 @@ TextCommand(KICK_MESSAGE_TEXT):Connect(function(player, message)
 				end
 			end
 		end
-	end
-end)
+	end)
+end
 
