@@ -87,7 +87,6 @@ if GameWithMeConnect:isHostingEvent() or RunService:IsStudio() then
 		if hasPrivileges then
 			-- /gwm kick [username], [reason]
 			local nameToKick, reason = message:match(KICK_MESSAGE_PATTERN)
-			warn(message, nameToKick, reason)
 			if not nameToKick then
 				nameToKick = message:match(KICK_MESSAGE_PATTERN)
 			end
