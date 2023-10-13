@@ -1,4 +1,4 @@
-VERSION = 1.4.0
+VERSION = 2.0.2
 OUTPUT = GameWithMe-Portal-Roblox-Connect-Module-v$(VERSION).rbxmx
 
 ROJO = rojo

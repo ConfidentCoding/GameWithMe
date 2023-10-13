@@ -22,7 +22,7 @@ local GameWithMeAPI = require(
 
 local GameWithMeConnect = {}
 GameWithMeConnect.__index = GameWithMeConnect
-GameWithMeConnect.VERSION = "1.4.0"
+GameWithMeConnect.VERSION = "2.0.2"
 GameWithMeConnect.GameWithMeAPI = GameWithMeAPI
 GameWithMeConnect.Promise = Promise
 GameWithMeConnect.DS_PREFIX = "GameWithMe"
