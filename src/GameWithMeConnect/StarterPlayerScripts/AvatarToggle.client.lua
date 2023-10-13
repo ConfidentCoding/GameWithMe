@@ -1,13 +1,12 @@
 local Players = game:GetService("Players")
 local TextChatService = game:GetService("TextChatService")
-    local LocalPlayer = Players.LocalPlayer
 
 local AVATAR_TOGGLE_TEXT = "/gwm avatar"
 local AVATAR_TOGGLE_PATTERN = "^/gwm%savatar%s(.+)"
 
 local DEFAULTS = {
     SHIRT = '5939900118',
-    PANTS = '398633812'
+    PANTS = '398633811',
 }
 
 local TrackedPlayers = {}
