@@ -43,7 +43,6 @@
 				<bool name="ClipsDescendants">false</bool>
 				<bool name="Draggable">false</bool>
 				<token name="Font">41</token>
-				<Font name="FontFace"></Font>
 				<int name="LayoutOrder">0</int>
 				<float name="LineHeight">1</float>
 				<int name="MaxVisibleGraphemes">-1</int>

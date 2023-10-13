@@ -208,7 +208,6 @@
 								<bool name="ClipsDescendants">false</bool>
 								<bool name="Draggable">false</bool>
 								<token name="Font">3</token>
-								<Font name="FontFace"></Font>
 								<int name="LayoutOrder">0</int>
 								<float name="LineHeight">1</float>
 								<int name="MaxVisibleGraphemes">-1</int>
@@ -546,7 +545,6 @@ This sign allows you to teleport to the <b>Lobby</b> place. It works exactly lik
 								<bool name="ClipsDescendants">false</bool>
 								<bool name="Draggable">false</bool>
 								<token name="Font">3</token>
-								<Font name="FontFace"></Font>
 								<int name="LayoutOrder">0</int>
 								<float name="LineHeight">1</float>
 								<int name="MaxVisibleGraphemes">-1</int>

@@ -8,7 +8,7 @@ local EVENT_JOIN_MESSAGE_TEXT = "/gwm join"
 local KICK_MESSAGE_TEXT = "/gwm kick"
 local NAMES_TOGGLE_TEXT = "/gwm names"
 local AVATAR_TOGGLE_TEXT = "/gwm avatar"
-local KICK_MESSAGE_PATTERN = "^/gwm%s+kick%s+(.+)"
+local KICK_MESSAGE_PATTERN = "^/gwm%skick%s(.+),(.+)"
 local COOL_DOWN_TIME = 5
 
 local lastCommand = os.time()
@@ -54,8 +54,9 @@ if GameWithMeConnect:isHostingEvent() or RunService:IsStudio() then
 		if (os.time() - lastCommand) < COOL_DOWN_TIME then return end
 		local hasPrivileges = GameWithMeConnect:isGameOwnerOrGameWithMeAdminAsync(Players:GetPlayerByUserId(player.UserId)) or RunService:IsStudio()
 		if hasPrivileges then
-			-- /gwm kick [username]
+			-- /gwm kick [username], [reason]
 			local nameToKick, reason = message:match(KICK_MESSAGE_PATTERN)
+			warn(message, nameToKick, reason)
 			if not nameToKick then
 				nameToKick = message:match(KICK_MESSAGE_PATTERN)
 			end

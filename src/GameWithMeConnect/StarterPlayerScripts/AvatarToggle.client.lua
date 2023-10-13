@@ -3,17 +3,29 @@ local TextChatService = game:GetService("TextChatService")
     local LocalPlayer = Players.LocalPlayer
 
 local AVATAR_TOGGLE_TEXT = "/gwm avatar"
+local AVATAR_TOGGLE_PATTERN = "^/gwm%savatar%s(.+)"
 
 local DEFAULTS = {
     SHIRT = '5939900118',
     PANTS = '398633812'
 }
 
-local enabled = false
 local TrackedPlayers = {}
 
-function TrackPlayer(player)
+local function findPlayer(s)
+	local i = tonumber(s)
+	for _, player in pairs(Players:GetPlayers()) do
+		if s:lower() == player.Name:lower() or i == player.UserId then
+			return player
+		end
+	end
+	return nil
+end
 
+function TrackPlayer(player)
+    if table.find(TrackedPlayers, player.Name) then return end
+
+    table.insert(TrackedPlayers, player.Name)
     -- Remove all existing shirts and pants
     for _, obj in pairs (player.Character:GetDescendants()) do
         if obj:IsA('Shirt') or obj:IsA('Pants') then
@@ -39,30 +51,12 @@ function TrackPlayer(player)
 
 end
 
-function Start()
-    enabled = true
-    for _, plr in pairs (TrackedPlayers) do
-        TrackPlayer(plr)
-    end
-end
-
-function PlayerAdded(player)
-    if player == LocalPlayer then return end
-    table.insert(TrackedPlayers, player.Name)
-    if enabled == true then
+TextChatService:WaitForChild(AVATAR_TOGGLE_TEXT).Triggered:Connect(function(source, message)
+    local nameToTrack = message:match(AVATAR_TOGGLE_PATTERN)
+    if not nameToTrack then return end
+    local player = findPlayer(nameToTrack)
+    if player then
         TrackPlayer(player)
     end
-end
-
-TextChatService:WaitForChild(AVATAR_TOGGLE_TEXT).Triggered:Connect(function()
-    if enabled == true then return end
-    Start()
 end)
 
-for _, plr in pairs (Players:GetChildren()) do
-    PlayerAdded(plr)
-end
-
-Players.PlayerAdded:Connect(function(plr)
-    PlayerAdded(plr)
-end)

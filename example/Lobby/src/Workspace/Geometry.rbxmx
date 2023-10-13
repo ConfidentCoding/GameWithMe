@@ -439,7 +439,6 @@
 								<bool name="ClipsDescendants">false</bool>
 								<bool name="Draggable">false</bool>
 								<token name="Font">3</token>
-								<Font name="FontFace"></Font>
 								<int name="LayoutOrder">0</int>
 								<float name="LineHeight">1</float>
 								<int name="MaxVisibleGraphemes">-1</int>
@@ -760,7 +759,6 @@ This sign reserves a server for the <b>Minigame</b> place, then teleports you to
 								<bool name="ClipsDescendants">false</bool>
 								<bool name="Draggable">false</bool>
 								<token name="Font">3</token>
-								<Font name="FontFace"></Font>
 								<int name="LayoutOrder">0</int>
 								<float name="LineHeight">1</float>
 								<int name="MaxVisibleGraphemes">-1</int>
@@ -1039,7 +1037,6 @@ This is the start place for the GameWithMe event. During event setup (<font face
 								<bool name="ClipsDescendants">false</bool>
 								<bool name="Draggable">false</bool>
 								<token name="Font">3</token>
-								<Font name="FontFace"></Font>
 								<int name="LayoutOrder">0</int>
 								<float name="LineHeight">1</float>
 								<int name="MaxVisibleGraphemes">-1</int>

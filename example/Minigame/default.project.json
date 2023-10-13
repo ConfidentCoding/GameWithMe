@@ -32,21 +32,6 @@
 				"ClockTime": 20
 			}
 		},
-		"Chat": {
-			"$className": "Chat",
-			"ChatModules": {
-				"$className": "Folder",
-				"InsertDefaultModules": {
-					"$className": "BoolValue",
-					"$properties": {
-						"Value": true
-					}
-				},
-				"GameWithMeConnectChatModule": {
-					"$path": "../../src/GameWithMeConnect/GameWithMeConnectChatModule.lua"
-				}
-			}
-		},
 		"HttpService": {
 			"$properties": {
 				"HttpEnabled": true
