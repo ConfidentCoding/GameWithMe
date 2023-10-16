@@ -11,14 +11,19 @@ local NAMES_TOGGLE_TEXT = "/gwm names"
 local AVATAR_TOGGLE_TEXT = "/gwm avatar"
 local KICK_MESSAGE_PATTERN = "^/gwm%skick%s(.+),(.+)"
 local AVATAR_TOGGLE_PATTERN = "^/gwm%savatar%s(.+)"
-
+local DEFAULTS = {
+    SHIRT = '15053375053',
+    PANTS = '398633811',
+}
 local COOL_DOWN_TIME = 5
 
 local lastCommand = os.time()
 local GameWithMeConnect = require(ServerScriptService:WaitForChild("GameWithMe Portal Roblox Connect Module"):WaitForChild("GameWithMeConnect"))
 local BundleInfo = AssetService:GetBundleDetailsAsync(687)
 
-local function ApplyBundleToPlayer(Player)
+local TrackedPlayers = {}
+
+function ApplyBundleToPlayer(Player)
 	local outfitId = 0
 		
 	-- Find the outfit that corresponds with this bundle.
@@ -34,6 +39,37 @@ local function ApplyBundleToPlayer(Player)
 		Player.Character.Humanoid:ApplyDescription(bundleDesc)
 	end
 end
+
+function TrackPlayer(player)
+    if table.find(TrackedPlayers, player.Name) then return end
+
+    table.insert(TrackedPlayers, player.Name)
+    -- Remove all existing shirts and pants
+    for _, obj in pairs (player.Character:GetDescendants()) do
+        if obj:IsA('Shirt') or obj:IsA('Pants') then
+            obj:Destroy()
+        end
+    end
+
+    local Shirt = Instance.new('Shirt')
+    Shirt.Parent = player.Character
+    Shirt.ShirtTemplate = 'rbxassetid://' .. DEFAULTS.SHIRT
+
+    local Pants = Instance.new('Pants')
+    Pants.Parent = player.Character
+    Pants.PantsTemplate = 'rbxassetid://' .. DEFAULTS.PANTS
+
+    -- Any new shirts or pants set their template to the default (e.g when users change their avatar using in-game editors)
+    -- Assumption is made that existing systems by the game will have removed the previously added default shirt hence why the new object is not destroyed
+    player.Character.ChildAdded:Connect(function(obj)
+        if obj:IsA('Shirt') or obj:IsA('Pants') then
+           obj[obj.ClassName .. 'Template'] = DEFAULTS[obj.ClassName]
+        end
+    end)
+
+	ApplyBundleToPlayer(player)
+end
+
 local function findPlayer(s)
 	local i = tonumber(s)
 	for _, player in pairs(Players:GetPlayers()) do
@@ -76,7 +112,7 @@ if GameWithMeConnect:isHostingEvent() or RunService:IsStudio() then
 			if not nameToTrack then return end
 			local findPlayer = findPlayer(nameToTrack)
 			if findPlayer then
-				ApplyBundleToPlayer(findPlayer)
+				TrackPlayer(findPlayer)
 			end
 		end
 	end)
