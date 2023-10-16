@@ -9,7 +9,8 @@ local EVENT_JOIN_MESSAGE_TEXT = "/gwm join"
 local KICK_MESSAGE_TEXT = "/gwm kick"
 local NAMES_TOGGLE_TEXT = "/gwm names"
 local AVATAR_TOGGLE_TEXT = "/gwm avatar"
-local KICK_MESSAGE_PATTERN = "^/gwm%skick%s(.+),(.+)"
+local KICK_MESSAGE_WITH_REASON_PATTERN = "^/gwm%skick%s(.+),(.+)"
+local KICK_MESSAGE_PATTERN = "^/gwm%skick%s(.+)"
 local AVATAR_TOGGLE_PATTERN = "^/gwm%savatar%s(.+)"
 local DEFAULTS = {
     SHIRT = '15053375053',
@@ -122,7 +123,7 @@ if GameWithMeConnect:isHostingEvent() or RunService:IsStudio() then
 		local hasPrivileges = GameWithMeConnect:isGameOwnerOrGameWithMeAdminAsync(Players:GetPlayerByUserId(player.UserId)) or RunService:IsStudio()
 		if hasPrivileges then
 			-- /gwm kick [username], [reason]
-			local nameToKick, reason = message:match(KICK_MESSAGE_PATTERN)
+			local nameToKick, reason = message:match(KICK_MESSAGE_WITH_REASON_PATTERN)
 			if not nameToKick then
 				nameToKick = message:match(KICK_MESSAGE_PATTERN)
 			end
